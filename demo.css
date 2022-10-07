@@ -8,6 +8,7 @@ header {
     padding-left: 100px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+    grid-area: header;
   }
   li {
     list-style-type: none;
@@ -34,13 +35,16 @@ header {
     height: 50px;
     text-align: center;
     padding-top: 2px;
+    grid-area: nav;
   }
   main {
     margin: 50px;
+    grid-area: main;
   }
   main h1 {
     color:rgb(129, 141, 179);
     font-family: arial;
+    grid-area: h1;
   }
   footer {
     height: 40px;
@@ -48,4 +52,37 @@ header {
     text-align: center;
     padding-top: 20px;
     color:rgb(211, 218, 240);
+    grid-area: footer;
   }
+
+  .cards div:nth-child(1) {
+    grid-area: card1;
+  }
+  .cards div:nth-child(2) {
+    grid-area: card2;
+  }
+  .cards {
+    grid-area: cards;
+    display: grid;
+  }
+  
+/* Small devices (portrait tablets and phones, upto 766px) */
+        @media only screen and (max-width: 600px) {
+          .cards {
+              grid-template-areas: 
+              'card1'
+              'card2';
+          }
+          .cards img {
+            max-width: 95%;
+            height: auto;
+          }
+      }
+      
+/* Medium devices (landscape tablets, 768px and up) */
+      @media only screen and (min-width: 600px) {
+          .cards {
+              grid-template-areas: 
+              'card1 card2';
+          }
+      } 
